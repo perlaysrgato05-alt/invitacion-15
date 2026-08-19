@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>XV Años — María Isabel Vargas Ortiz</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="stars-overlay"></div>
+    <div class="glitter-overlay"></div>
+
+    <div class="music-player">
+        <button id="music-toggle" aria-label="Reproducir música">
+            <i id="music-icon" class="fa-solid fa-play"></i>
+        </button>
+        <span>Música</span>
+    </div>
+
+    <audio id="bg-audio" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="main-wrapper">
+
+        <header class="hero-section">
+            <p class="subtitle">— TE INVITO A CELEBRAR MIS XV AÑOS —</p>
+            
+            <div class="photo-container">
+                <img src="images/portada.jpeg" alt="María Isabel - XV Años">
+            </div>
+
+            <h1 class="title-name">María Isabel</h1>
+            <h2 class="title-lastname">Vargas Ortiz</h2>
+            <div class="divider"></div>
+            
+            <p class="quote">
+                "Hay momentos en la vida que llegan silenciosamente y se quedan para siempre en el alma."
+            </p>
+        </header>
+
+        <section class="section-card countdown-section">
+            <h3 class="section-title">La Cuenta Regresiva</h3>
+            <div class="timer-grid">
+                <div class="timer-box">
+                    <span id="days">00</span>
+                    <p>Días</p>
+                </div>
+                <div class="timer-box">
+                    <span id="hours">00</span>
+                    <p>Horas</p>
+                </div>
+                <div class="timer-box">
+                    <span id="minutes">00</span>
+                    <p>Minutos</p>
+                </div>
+                <div class="timer-box">
+                    <span id="seconds">00</span>
+                    <p>Segundos</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <h3 class="section-title">¿Cuándo y Dónde?</h3>
+            <div class="info-list">
+                <div class="info-item">
+                    <i class="fa-solid fa-calendar-days icon"></i>
+                    <div>
+                        <h4>FECHA ESPECIAL</h4>
+                        <p>Sábado, 22 de Agosto de 2026</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-clock icon"></i>
+                    <div>
+                        <h4>HORARIOS</h4>
+                        <p><strong>Ingreso Finca:</strong> 05:00 PM</p>
+                        <p><strong>Recepción:</strong> 07:00 PM</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot icon"></i>
+                    <div>
+                        <h4>LOCACIÓN</h4>
+                        <p>Finca Casa Blanca (Vereda Buga, Barbosa)</p>
+                    </div>
+                </div>
+            </div>
+            <a href="https://maps.app.goo.gl/UaQuonNsbQonh9ee7" target="_blank" class="btn-outline">
+                <i class="fa-solid fa-map-location-dot"></i> Ver Ubicación GPS
+            </a>
+        </section>
+
+        <section class="section-card">
+            <i class="fa-solid fa-user-tie icon-header"></i>
+            <h3 class="section-title">Código de Vestimenta</h3>
+            <p class="tag-highlight">Gala Formal / Elegante</p>
+            <div class="dress-details">
+                <p><strong>Mujeres:</strong> Vestidos de gala en tonos neutros u oscuros.</p>
+                <p><strong>Hombres:</strong> Traje formal o traje casual elegante.</p>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <i class="fa-solid fa-envelope-open-text icon-header"></i>
+            <h3 class="section-title">Lluvia de Sobres</h3>
+            <p class="quote">
+                "Tu presencia es mi mejor regalo. Si deseas tener un detalle adicional, contaremos con un buzón especial el día del evento."
+            </p>
+        </section>
+
+        <section class="section-card">
+            <h3 class="section-title">Galería de Recuerdos</h3>
+            <p class="sub-text">Toca una imagen para ampliar</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="images/galeria1.jpeg" alt="Recuerdo 1">
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this.querySelector('img').src)">
+                    <img src="images/galeria2.jpeg" alt="Recuerdo 2">
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card confirm-section">
+            <h3 class="section-title">Confirmación</h3>
+            <p class="sub-text">Por favor confirma tu asistencia antes del 20 de Julio de 2026.</p>
+            <button onclick="toggleModal(true)" class="btn-primary">
+                <i class="fa-brands fa-whatsapp"></i> Confirmar Asistencia
+            </button>
+        </section>
+
+        <footer>
+            <p>María Isabel • Mis XV Años</p>
+            <p>&copy; 2026</p>
+        </footer>
+
+    </div>
+
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-box">
+            <button onclick="toggleModal(false)" class="btn-close">&times;</button>
+            <h3 class="modal-title">Confirmar Asistencia</h3>
+            <form id="rsvp-form">
+                <div class="form-group">
+                    <label>Nombre Completo</label>
+                    <input type="text" id="guest-name" required placeholder="Ej: Familia Pérez">
+                </div>
+                <div class="form-group">
+                    <label>¿Asistirás?</label>
+                    <select id="attendance-status">
+                        <option value="Confirmo mi asistencia con mucha alegría">Sí, asistiré</option>
+                        <option value="Lamentablemente no podré asistir">No podré asistir</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Mensaje Opcional</label>
+                    <textarea id="guest-message" placeholder="Mensaje para María Isabel..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary full-width">Enviar a WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="lightbox" class="modal-overlay hidden" onclick="closeLightbox()">
+        <img id="lightbox-img" src="" alt="Imagen ampliada">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
